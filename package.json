@@ -7,22 +7,23 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "package": "electron-packager ./ smark --platform=win32 --out ./app --electron-version 7.1.9 --overwrite --icon=./logo.ico --ignore=\"(.gitignore|node_modules)\" --no-prune"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuerpan/smark.git"
+    "url": "git+https://github.com/yuersen/smark.git"
   },
   "keywords": [
     "Electron",
     "Markdown"
   ],
-  "author": "yuerpan",
+  "author": "yuersen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yuerpan/smark/issues"
+    "url": "https://github.com/yuersen/smark/issues"
   },
-  "homepage": "https://github.com/yuerpan/smark#readme",
+  "homepage": "https://github.com/yuersen/smark#readme",
   "devDependencies": {
     "electron": "^7.1.9",
     "electron-packager": "^14.2.0"

@@ -2,8 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <title>smark</title>
     <link href="./lib/simplemde.min.css" rel="stylesheet" />
-    <title>Markdown</title>
+    <style type="text/css">
+     .CodeMirror,
+     .CodeMirror-wrap pre {
+        font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+    </style>
   </head>
   <body>
     <div id="container">
@@ -87,12 +95,12 @@
           title: 'Toggle Side by Side',
           action: SimpleMDE.toggleSideBySide
         },
-        {
-          name: 'fullscreen',
-          className: 'fa fa-arrows-alt no-disable no-mobile',
-          title: 'Toggle Fullscreen',
-          action: SimpleMDE.toggleFullScreen
-        },
+        // {
+        //   name: 'fullscreen',
+        //   className: 'fa fa-arrows-alt no-disable no-mobile',
+        //   title: 'Toggle Fullscreen',
+        //   action: SimpleMDE.toggleFullScreen
+        // },
         '|',
         {
           name: 'save',
