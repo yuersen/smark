@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="./lib/simplemde.min.css" rel="stylesheet" />
+    <title>Markdown</title>
+  </head>
+  <body>
+    <div id="container">
+      <textarea id="simplemde" cols="30" rows="10"></textarea>
+    </div>
+    <script src="./lib/simplemde.min.js"></script>
+    <script>
+      let toolbar = [
+        {
+          name: 'bold',
+          className: 'fa fa-bold',
+          title: 'Bold',
+          action: SimpleMDE.toggleBold
+        },
+        {
+          name: 'italic',
+          className: 'fa fa-italic',
+          title: 'Italic',
+          action: SimpleMDE.toggleItalic
+        },
+        {
+          name: 'heading',
+          className: 'fa fa-header',
+          title: 'Heading',
+          action: SimpleMDE.toggleHeadingSmaller
+        },
+        '|',
+        {
+          name: 'quote',
+          className: 'fa fa-quote-left',
+          title: 'Quote',
+          action: SimpleMDE.toggleBlockquote
+        },
+        {
+          name: 'code',
+          className: 'fa fa-code',
+          title: 'Code',
+          action: SimpleMDE.toggleCodeBlock
+        },
+        {
+          name: 'unordered-list',
+          className: 'fa fa-list-ul',
+          title: 'Generic List',
+          action: SimpleMDE.toggleUnorderedList
+        },
+        {
+          name: 'ordered-list',
+          className: 'fa fa-list-ol',
+          title: 'Numbered List',
+          action: SimpleMDE.toggleOrderedList
+        },
+        '|',
+        {
+          name: 'link',
+          className: 'fa fa-link',
+          title: 'Create Link',
+          action: SimpleMDE.drawLink
+        },
+        {
+          name: 'image',
+          className: 'fa fa-picture-o',
+          title: 'Insert Image',
+          action: SimpleMDE.drawImage
+        },
+        {
+          name: 'table',
+          className: 'fa fa-table',
+          title: 'Table',
+          action: SimpleMDE.drawTable
+        },
+        '|',
+        {
+          name: 'preview',
+          className: 'fa fa-eye no-disable',
+          title: 'Toggle Preview',
+          action: SimpleMDE.togglePreview
+        },
+        {
+          name: 'side-by-side',
+          className: 'fa fa-columns no-disable no-mobile',
+          title: 'Toggle Side by Side',
+          action: SimpleMDE.toggleSideBySide
+        },
+        {
+          name: 'fullscreen',
+          className: 'fa fa-arrows-alt no-disable no-mobile',
+          title: 'Toggle Fullscreen',
+          action: SimpleMDE.toggleFullScreen
+        },
+        '|',
+        {
+          name: 'save',
+          className: 'fa fa-floppy-o',
+          title: '保存',
+          action: function saveMd(editor) {
+            let content = simpleMDEInstance.value(),
+              alink = document.createElement('a'),
+              blob = new Blob([content])
+
+            alink.download =
+              content
+                .split('\n')[0]
+                .replace(/\#*/g, '')
+                .replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') + '.md'
+            alink.href = URL.createObjectURL(blob)
+            alink.click()
+          }
+        },
+        {
+          name: 'guide',
+          action: 'https://simplemde.com/markdown-guide',
+          className: 'fa fa-question-circle',
+          title: 'Markdown Guide'
+        }
+      ]
+
+      let simpleMDEInstance = new SimpleMDE({
+        element: document.getElementById('simplemde'),
+        autofocus: true,
+        autosave: {
+          enabled: true,
+          uniqueId: 'MARKDOWN_ONLINE',
+          delay: 1000 * 60 * 2
+        },
+        placeholder: 'Type here...',
+        spellChecker: false,
+        toolbar: toolbar
+      })
+      // full screen
+      SimpleMDE.toggleFullScreen(simpleMDEInstance)
+    </script>
+  </body>
+</html>

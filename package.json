@@ -1,0 +1,30 @@
+{
+  "name": "smark",
+  "version": "1.0.0",
+  "description": "A Electron application width markdown",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuerpan/smark.git"
+  },
+  "keywords": [
+    "Electron",
+    "Markdown"
+  ],
+  "author": "yuerpan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuerpan/smark/issues"
+  },
+  "homepage": "https://github.com/yuerpan/smark#readme",
+  "devDependencies": {
+    "electron": "^7.1.9",
+    "electron-packager": "^14.2.0"
+  }
+}
